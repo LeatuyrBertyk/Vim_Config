@@ -1,80 +1,67 @@
 # VimConfig
-This is my configuration for VIM text editor.
+This is my configuration to make Vim text editor as an IDE.
 
 <h2>1. What is Vim?</h2>
 
-Vim text editor is a highly efficient and ubiquitous tool, particularly popular among programmers, system administrators, and anyone who spends a significant amount of time working with text files in a command-line environment. 
+Vim is simply a lightweight text editor. Unlike VS Code or Sublime Text, its initial interface looks like almost nothing. What makes Vim special is that it boosts your typing speed by using shortcuts that are quite different from the norm. To understand how to use it, you can look up **vimtutor** online.
 
-Vim is distinguished by several core features that contribute to its power and steep learning curve:
-
- - Modal Editing: This is Vim's most defining characteristic. Unlike most modern editors, Vim operates in different modes (like Normal, Insert, Visual, and Command-line). This allows a user to perform complex editing tasks using a minimal number of keystrokes without taking their hands off the home row of the keyboard.
-
- - Efficiency and Speed: Once mastered, Vim allows for incredibly fast text manipulation. It's designed to minimize the use of the mouse and maximize keyboard efficiency, making editing feel like navigating and manipulating text with a distinct language of commands and movements.
-
- - Ubiquity: Vim is often pre-installed on virtually all UNIX and Linux systems, making it a reliable, available tool for remote editing and system configuration, even on minimal installations.
-
- - Extensibility: Vim is highly customizable and extensible through its configuration file (.vimrc) and a vast ecosystem of plugins. This allows users to tailor the editor to their specific needs, from basic text editing to a full-fledged Integrated Development Environment (IDE) experience.
+To make the experience more convenient, Vim supports many plugins, and below is my configuration to turn Vim into an IDE.
 
 <h2>2. Requirements</h2>
 
-The configuration requires three important tools:
+The configuration requires:
  - NodeJS
  - Git
  - Python
 
-We can easily download those from the Internet.
+<h2>3. Step by step guide for Windows users</h2>
 
-<h2>3. Step by step guide</h2>
+The installation will be implemented on Git (terminal Git bash).
 
-**Note:** the implementing process will be done all in Git.
+1. Install Vim
 
-Follow below steps:
+Download the suitable version of Vim on [Vim Download](https://www.vim.org/download.php).
 
-1. Create **vimrc**
-
-```bash
-vim ~/.vimrc
-```
-
-Adding below text into that file:
+2. Preparation for configuration
 
 ```bash
-if filereadable(expand("~/.vimrc.plug"))
-	source ~/.vimrc.plug
-endif
+mkdir -p vim/plug
 ```
 
-Then exit this file by using command **:wq** in Command mode.
-
-2. Create **vim.plug**
+2. Clone project
 
 ```bash
-touch ~/.vimrc.plug
+git clone https://github.com/LeatuyrBertyk/VimConfig/
 ```
 
-```bash
-mkdir -p .vim/plug
-```
-3. Configure **vimrc.plug** to get PlugIn
-
-```bash
-vim .vimrc.plug
-```
-Then, adding below text into that file
-
-```bash
-let g:plug_home = '~/vimfiles/plugged'
-
-call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-fugitive' "A plugin for Git in VIM
-call plug#end()
-```
-
-4. Finish installation
+3. Finish installation
 
 ```bash
 curl -flo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-After that, using command **:PlugInstall** in Vim, the editor will automatically download PlugIns in **vimrc.plug**.
+In Vim, type ***Esc** to switch to Comman mode, type **:PlugInstall**, the editor will automatically download PlugIns in **vimrc.plug**.
 
+<h2>3. Step by step guide for Linux (Ubuntu) users</h2>
+
+**Note:** this installation is easier and faster.
+
+1. Download Vim
+
+On any terminal on Ubuntu, download Vim by
+
+```bash
+sudo apt update && sudo apt upgrade && sudo apt install vim
+```
+
+If there appears any requirements for extra libraries, Yes to all. 
+
+2. Clone project
+
+```bash
+git clone https://github.com/LeatuyrBertyk/VimConfig/
+```
+
+2. Activate Plugins
+
+Open Vim, type **Esc** to switch to Command mode, type **:PlugInstall**, the editor will automatically download PlugIns in **.vimrc.plug**.
