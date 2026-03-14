@@ -1,30 +1,27 @@
 set nocompatible
 set encoding=utf-8
 set wrap
-set mouse=a                 " Enable mouse
-set expandtab               " Tab setting 
-set tabstop=4               " Tab setting 
-set shiftwidth=4            " Tab setting
-set listchars=tab:\¦\       " Tab charactor 
+set expandtab
+set tabstop=2
+set shiftwidth=2
+set listchars=tab:\¦\
 set list
-set foldmethod=syntax         
+set foldmethod=syntax
 set foldnestmax=1
-set foldlevelstart=3        "  
-set number                  " Show line number
-set ignorecase              " Enable case-sensitive 
+set foldlevelstart=3
+set number
+set relativenumber
+set ignorecase
 set hlsearch
-" Disable backup
 set nobackup
 set nowb
 set noswapfile
-
-" Optimize 
-set synmaxcol=3000    "Prevent breaking syntax hightlight when string too long. Max = 3000"
+set synmaxcol=3000
 set lazyredraw
 
 syntax on
 
-" Enable copying from vim to clipboard
+" Activate clipboard
 if has('win32')
   set clipboard=unnamed  
 else
@@ -33,15 +30,20 @@ endif
 
 set termguicolors
 let g:airline#extensions#tabline#enabled = 1
-
-let $SHELL = 'C:\Program Files\Git\bin\bash.exe'
-set shell=$SHELL
-autocmd BufEnter NERD_tree_* | execute 'normal R'
-
-" Hiển thị số tab nếu có nhiều hơn 1 tab
 let g:airline#extensions#tabline#buffer_nr_show = 1
 
+" Set font
 set guifont=Consolas:h14
+
+" Shortcut to open File explorer
+map <C-n> :NERDTreeToggle<CR>
+autocmd BufEnter NERD_tree_* | execute 'normal R' "Auto update files and folders
+
+" Shortcut to oepn file and terminal
+command! -nargs=1 VV rightbelow vsplit <args> "Open vertical right split file
+command! -nargs=1 SS rightbelow split <args>  "Open below split file
+command! Vterm rightbelow vertical terminal   "Open vertical right split terminal
+command! Sterm rightbelow terminal            "Open below split terminal
 
 if filereadable(expand("~/.vimrc.plug"))
 	source ~/.vimrc.plug
