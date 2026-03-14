@@ -7,7 +7,7 @@ Vim is simply a lightweight text editor. Unlike VS Code or Sublime Text, its ini
 
 To make the experience more convenient, Vim supports many plugins, and below is my configuration to turn Vim into an IDE.
 
-![Vim interface](/assets/screenshotVim.png)
+![Vim interface](assets/screenshotVim.png)
 
 <h2>2. Requirements</h2>
 
@@ -33,7 +33,7 @@ mkdir -p vim/plug
 2. Clone project
 
 ```bash
-git clone https://github.com/LeatuyrBertyk/VimConfig/
+git clone https://github.com/LeatuyrBertyk/VimConfig
 ```
 
 3. Finish installation
@@ -42,7 +42,7 @@ git clone https://github.com/LeatuyrBertyk/VimConfig/
 curl -flo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-In Vim, type ***Esc** to switch to Comman mode, type **:PlugInstall**, the editor will automatically download PlugIns in **vimrc.plug**.
+In Vim, type ***Esc** to switch to Command mode, type **:PlugInstall**, the editor will automatically download PlugIns in **vimrc.plug**.
 
 <h2>3. Step by step guide for Linux (Ubuntu) users</h2>
 
@@ -56,12 +56,12 @@ On any terminal on Ubuntu, download Vim by
 sudo apt update && sudo apt upgrade && sudo apt install vim
 ```
 
-If there appears any requirements for extra libraries, Yes to all. 
+If there appears any requirements for extra libraries, Yes to all.
 
 2. Clone project
 
 ```bash
-git clone https://github.com/LeatuyrBertyk/VimConfig/
+git clone https://github.com/LeatuyrBertyk/VimConfig
 ```
 
 2. Activate Plugins
